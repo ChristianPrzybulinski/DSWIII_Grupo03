@@ -23,31 +23,52 @@
     <include layout="@layout/content_main"
         android:id="@+id/include" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/top"
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:layout_marginTop="55dp"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/black"
+                android:ems="10"
+                android:hint="Login"
+                android:inputType="textPersonName"
+                android:textColorLink="@android:color/background_dark"
+                android:visibility="visible" />
+        </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/middle"
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:layout_marginTop="140dp"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/black"
+                android:ems="10"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:textColorLink="@android:color/background_dark"
+                android:visibility="visible" />
+        </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/bottom"
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:layout_marginTop="225dp"
@@ -57,8 +78,18 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="250dp"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnAcessar"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="9dp"
+                    android:backgroundTint="@android:color/holo_blue_dark"
+                    android:text="Acessar" />
+            </LinearLayout>
         </LinearLayout>
+
 
     </FrameLayout>
 
