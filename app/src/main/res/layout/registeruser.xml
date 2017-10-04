@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="Cadastro Usuário" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="335dp"
+            android:layout_height="60dp"
+            android:background="@android:drawable/screen_background_dark_transparent"
+            android:backgroundTint="@android:color/black"
+            android:ems="10"
+            android:hint="Nome"
+            android:inputType="textPersonName"
+            android:textColorLink="@android:color/background_dark"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="335dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="75dp"
+            android:background="@android:drawable/screen_background_dark_transparent"
+            android:backgroundTint="@android:color/background_dark"
+            android:ems="10"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:textColorLink="@android:color/background_dark" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="335dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="150dp"
+            android:background="@android:drawable/screen_background_dark_transparent"
+            android:backgroundTint="@android:color/black"
+            android:ems="10"
+            android:hint="Senha"
+            android:inputType="textPassword"
+            android:textColorLink="@android:color/background_dark"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/btnOk"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="290dp"
+            android:layout_marginTop="400dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="Salvar"
+            android:textColorLink="@android:color/background_dark" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            style="@android:style/Widget.Material.Light.Spinner.Underlined"
+            android:layout_width="335dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="220dp"
+            android:backgroundTint="@android:color/black" />
+
+
+    </FrameLayout>
+
+
+</LinearLayout>
