@@ -32,6 +32,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
@@ -190,6 +192,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
+    private void goToHomeMenu(){
+        Intent menuIntent = new Intent(this, MenuPrincipal.class);
+        startActivity(menuIntent);
+    }
+
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
         return email.contains("@");
@@ -333,7 +340,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                finish();
+                // login successful, so it calls the Home Menu activity
+                goToHomeMenu();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
