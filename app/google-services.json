@@ -1,38 +1,27 @@
 {
   "project_info": {
-    "project_number": "96995510040",
-    "firebase_url": "https://dswii-f90d8.firebaseio.com",
-    "project_id": "dswii-f90d8",
-    "storage_bucket": "dswii-f90d8.appspot.com"
+    "project_number": "668992962399",
+    "firebase_url": "https://dev-iii-grupo-3.firebaseio.com",
+    "project_id": "dev-iii-grupo-3",
+    "storage_bucket": "dev-iii-grupo-3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:96995510040:android:75415012d29b0931",
+        "mobilesdk_app_id": "1:668992962399:android:31cf86834e20252e",
         "android_client_info": {
-          "package_name": "dev3.dswiii_grupo03"
+          "package_name": "dev3.academiaabc"
         }
       },
       "oauth_client": [
         {
-          "client_id": "96995510040-cfooo2osg5nie5qbq9en94uhlracd5ja.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "dev3.dswiii_grupo03",
-            "certificate_hash": "e795764b0a0a1b5dfde4abccd79c2f57a60cf6b4"
-          }
-        },
-        {
-          "client_id": "96995510040-q6r27klu6bdshslfsl7t02hc6l84a895.apps.googleusercontent.com",
+          "client_id": "668992962399-hu9tog3noddpftv47u7h8f2jmbf1um56.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAG8zYKAcw5kKa-OFkW9j9TNHXGIQaMexs"
-        },
-        {
-          "current_key": "AIzaSyCXAstgufLAMEpQ92ShPYvl-2It0Y-MyAg"
+          "current_key": "AIzaSyBC8Un8kGQ14ss6biJTFUBQpq-1Ee7nDrM"
         }
       ],
       "services": {
@@ -40,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "96995510040-q6r27klu6bdshslfsl7t02hc6l84a895.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
