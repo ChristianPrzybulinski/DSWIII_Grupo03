@@ -17,7 +17,6 @@ public class MenuPrincipal extends AppCompatActivity {
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);   // identifica a toolbar sendo usada
         setSupportActionBar(myToolbar);
-
     }
 
 
