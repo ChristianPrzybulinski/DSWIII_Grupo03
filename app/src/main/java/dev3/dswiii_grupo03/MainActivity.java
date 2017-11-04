@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         DatabaseConnect db = new DatabaseConnect();
-        db.teste();
+        //db.teste();
 
 
 
