@@ -8,51 +8,99 @@
 
     <!-- Include below needs to be in EVERY XML that uses the toolbar -->
     <include layout="@layout/toolbar"
-        tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="0dp"
-        android:id="@+id/include" />
+        android:id="@+id/include"
+        tools:layout_editor_absoluteY="8dp" />
+
 
 
     <TextView
         android:id="@+id/if_name"
         android:layout_width="0dp"
-        android:layout_height="39dp"
+        android:layout_height="37dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginTop="90dp"
         android:ems="10"
         android:text="Nome"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include" />
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="0dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.038"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/include"
-        android:layout_marginTop="100dp"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/if_name" />
 
     <TextView
         android:id="@+id/if_id"
         android:layout_width="0dp"
-        android:layout_height="39dp"
+        android:layout_height="37dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
         android:ems="10"
         android:text="ID"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/if_gender" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/edit_gender" />
 
     <TextView
         android:id="@+id/if_gender"
         android:layout_width="0dp"
-        android:layout_height="39dp"
+        android:layout_height="37dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="7dp"
         android:ems="10"
         android:text="Genero"
+        android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/if_name" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_name" />
+
+    <EditText
+        android:id="@+id/edit_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/if_gender" />
+
+
+    <EditText
+        android:id="@+id/edit_id"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/if_id"
+        app:layout_constraintHorizontal_bias="0.039" />
+
 
 </android.support.constraint.ConstraintLayout>
