@@ -21,7 +21,8 @@ public class DatabaseConnect {
     }
 
     protected DatabaseReference getCampoDB(String sTable, String sPrimaryKey){
-        return db.child(sTable).child(sPrimaryKey);
+        return db.child(sTable).child(sPrimaryKey).getRef();
     }
+
 
 }

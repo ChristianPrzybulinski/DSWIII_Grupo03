@@ -34,8 +34,11 @@ import java.util.List;
 
 import android.content.Intent;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import Database.DatabaseUser;
 
@@ -158,61 +161,62 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (mAuthTask != null) {
             return;
         }
-
         // Reset errors.
         mEmailView.setError(null);
         mPasswordView.setError(null);
 
-        // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
+            //valida se o username existe e chama o callback
+        dbUser.getUser(mEmailView.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    dbUser.getUser(mEmailView.getText().toString()).child("pass").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            String value = dataSnapshot.getValue().toString();
+                            String pass = mPasswordView.getText().toString();
+                            if(value.equals(pass)){
+                                loginOk();
+                            }else{
+                                mPasswordView.setError("Invalid Password");
+                                setFocusView(mPasswordView);
+                            }
+                        }
 
-        boolean cancel = false;
-        View focusView = null;
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
 
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
+                        }
+                    });
+                }
+                else{
+                    mEmailView.setError("Username invalido");
+                    setFocusView(mEmailView);
+                }
+            }
 
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
-            cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError("Username invalido");
-            focusView = mEmailView;
-            cancel = true;
-        }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
-        if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
-            focusView.requestFocus();
-        } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
-        }
+            }
+        });
+
+    }
+
+    public void setFocusView(View view){
+        View focusView = view;
+        focusView.requestFocus();
+    }
+
+    public void loginOk(){
+        showProgress(true);
+        mAuthTask = new UserLoginTask(mEmailView.getText().toString(), mPasswordView.getText().toString());
+        mAuthTask.execute((Void) null);
     }
 
     private void goToHomeMenu(){
         Intent menuIntent = new Intent(this, MenuPrincipal.class);
         startActivity(menuIntent);
-    }
-
-    private boolean isEmailValid(String email) {
-        return dbUser.loginExists(email);
-    }
-
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
     }
 
     /**
