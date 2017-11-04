@@ -9,50 +9,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 
-public class MenuPrincipal extends AppCompatActivity {
-
-    private String login;
+public class MenuPrincipal extends ManagerActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.login = getIntent().getStringExtra("login");
         setTitle("Inicio");
         setContentView(R.layout.activity_menu_principal);   // referencia a atividade em questão
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);   // identifica a toolbar sendo usada
         setSupportActionBar(myToolbar);
     }
-
-
-
-    /*
-     * A seção abaixo cria o menu lateral da action bar dentro da activity
-     */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu items for use in the action bar
-        getMenuInflater().inflate(R.menu.menu_main, menu);   // referencia ao layout criado no path res/menu
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    /*
-     * código comentado porque a conexão dos itens do menu e suas respectivas ações ainda não foi feita
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        switch(item.getItemId()) {
-        case R.id.ImInicio:
-            break;
-        case R.id.ImPerfil:
-            intent = new Intent(this, Profile.class).putExtra("login", this.login);
-            this.startActivity(intent);
-            break;
-        default:
-            return super.onOptionsItemSelected(item);
-        }
-
-        return true;
-    }
-
 }

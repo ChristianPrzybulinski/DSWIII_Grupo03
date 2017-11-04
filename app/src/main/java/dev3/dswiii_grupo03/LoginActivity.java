@@ -47,7 +47,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class LoginActivity extends ManagerActivity implements LoaderCallbacks<Cursor> {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -209,7 +209,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     public void loginOk(){
-        showProgress(true);
+       showProgress(true);
         mAuthTask = new UserLoginTask(mEmailView.getText().toString(), mPasswordView.getText().toString());
         mAuthTask.execute((Void) null);
     }
@@ -217,6 +217,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private void goToHomeMenu(){
         Intent menuIntent = new Intent(this, MenuPrincipal.class).putExtra("login", mEmailView.getText().toString());
         startActivity(menuIntent);
+        finish();
     }
 
     /**
