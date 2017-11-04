@@ -215,7 +215,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     private void goToHomeMenu(){
-        Intent menuIntent = new Intent(this, MenuPrincipal.class);
+        Intent menuIntent = new Intent(this, MenuPrincipal.class).putExtra("login", mEmailView.getText().toString());
         startActivity(menuIntent);
     }
 

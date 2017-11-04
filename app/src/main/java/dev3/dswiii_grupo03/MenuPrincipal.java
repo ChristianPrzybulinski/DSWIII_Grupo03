@@ -11,9 +11,12 @@ import android.view.MenuItem;
 
 public class MenuPrincipal extends AppCompatActivity {
 
+    private String login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.login = getIntent().getStringExtra("login");
         setTitle("Inicio");
         setContentView(R.layout.activity_menu_principal);   // referencia a atividade em questão
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);   // identifica a toolbar sendo usada
@@ -40,11 +43,9 @@ public class MenuPrincipal extends AppCompatActivity {
         Intent intent;
         switch(item.getItemId()) {
         case R.id.ImInicio:
-            intent = new Intent(this, MenuPrincipal.class);
-            this.startActivity(intent);
             break;
         case R.id.ImPerfil:
-            intent = new Intent(this, Profile.class);
+            intent = new Intent(this, Profile.class).putExtra("login", this.login);
             this.startActivity(intent);
             break;
         default:

@@ -36,12 +36,9 @@ public class Profile extends AppCompatActivity {
         Intent intent;
         switch(item.getItemId()) {
             case R.id.ImInicio:
-                intent = new Intent(this, MenuPrincipal.class);
-                this.startActivity(intent);
+                finish();
                 break;
             case R.id.ImPerfil:
-                intent = new Intent(this, Profile.class);
-                this.startActivity(intent);
                 break;
             default:
                 return super.onOptionsItemSelected(item);
