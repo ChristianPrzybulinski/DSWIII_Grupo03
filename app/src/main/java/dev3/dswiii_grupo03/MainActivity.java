@@ -5,13 +5,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import cls.DatabaseConnect;
+import Database.DatabaseConnect;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,13 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         Snackbar shower;
 
-
-
         DatabaseConnect db = new DatabaseConnect();
-        db.teste();
-
-
-
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
