@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+
 public class MenuPrincipal extends AppCompatActivity {
 
     @Override
@@ -14,7 +15,6 @@ public class MenuPrincipal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle("Academia ABC");
         setContentView(R.layout.activity_menu_principal);   // referencia a atividade em questão
-
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);   // identifica a toolbar sendo usada
         setSupportActionBar(myToolbar);
     }
@@ -27,8 +27,7 @@ public class MenuPrincipal extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);   // referencia ao layout criado no path res/menu
+        getMenuInflater().inflate(R.menu.menu_main, menu);   // referencia ao layout criado no path res/menu
         return super.onCreateOptionsMenu(menu);
     }
 
