@@ -170,7 +170,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    dbUser.getUser(mEmailView.getText().toString()).child("pass").addListenerForSingleValueEvent(new ValueEventListener() {
+                    dbUser.getUserPassword(mEmailView.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             String value = dataSnapshot.getValue().toString();

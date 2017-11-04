@@ -18,34 +18,11 @@ public class DatabaseUser extends DatabaseConnect {
         super();
     }
 
-    public DatabaseReference getUser(String sPrimaryKey) {
-        return this.getCampoDB("users", sPrimaryKey);
+    public DatabaseReference getUser(String login) {
+        return this.getCampoDB("users", login);
     }
 
-    public String getPassword(String login) {
-        DatabaseListenerGET dbGet = new DatabaseListenerGET();
-        this.getUser(login).child("Password").addListenerForSingleValueEvent(dbGet);
-        return dbGet.getValue();
-    }
-
-    public boolean loginExists(String login){
-        DatabaseReference ref = this.getUser(login);
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                exists = dataSnapshot.exists();
-                mudou = true;
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                exists = false;
-                mudou = true;
-            }
-        });
-
-        while(!mudou){
-        }
-        return exists;
+    public DatabaseReference getUserPassword(String login){
+        return this.getCampoDB("users", login).child("pass");
     }
 }
