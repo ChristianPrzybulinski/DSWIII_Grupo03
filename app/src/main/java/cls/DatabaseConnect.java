@@ -13,25 +13,28 @@ import com.google.firebase.database.ValueEventListener;
  */
 
 public class DatabaseConnect {
-
+    private String sCampo;
     private DatabaseReference db;
 
     public DatabaseConnect() {
-        this.db = FirebaseDatabase.getInstance().getReference("dev-iii-grupo-3");
+        this.db = FirebaseDatabase.getInstance().getReference();
     }
 
-    public void teste(){
+    public String GetUser(String sPrimaryKey, String sChild){
+       GetCampoDB("users", sPrimaryKey, sChild);
+       return this.sCampo;
+    }
 
-        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference dbInstance = db.child("users").child("christianrp").child("Name");
+    public void GetCampoDB(String sTable, String sPrimaryKey, String sChild){
+        DatabaseReference dbInstance = db.child(sTable).child(sPrimaryKey).child(sChild);
 
         dbInstance.addListenerForSingleValueEvent(new ValueEventListener(){
             @Override
-            public void onDataChange(DataSnapshot   dataSnapshot) {
-                String email = dataSnapshot.getValue(String.class);
-                Log.d("testedaporra", email);
-            }
 
+            public void onDataChange(DataSnapshot   dataSnapshot) {
+                sCampo = dataSnapshot.getValue(String.class);
+
+            }
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
