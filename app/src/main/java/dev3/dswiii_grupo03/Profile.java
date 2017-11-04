@@ -31,13 +31,19 @@ public class Profile extends ManagerActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);   // identifica a toolbar sendo usada
         setSupportActionBar(myToolbar);
 
-
-
-
+        loadProfileInformation();
     }
 
+    protected void loadProfileInformation(){
+        String login = getIntent().getStringExtra("login");
+        EditText name = (EditText) findViewById(R.id.edit_name);
 
+        //GET INFORMATIONS
+        dbUser.getUserName(login).addValueEventListener(new DatabaseListenerProfile(name));
+        dbUser.getUserName(login).addValueEventListener(new DatabaseListenerProfile(name));
 
-
+        //set editable Fields
+        dbUser.getUserAdmin(login).addValueEventListener(new DatabaseListenerProfileEditable(name));
+    }
 
 }

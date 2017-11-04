@@ -24,6 +24,13 @@ public class DatabaseConnect {
         return db.child(sTable).child(sPrimaryKey).getRef();
     }
 
+    public void SetCampoDB(String sTable, String sChave, String sName, String sPassword){
+        final DatabaseReference dbInstance = db.child(sTable);
+        DatabaseReference postsRef = dbInstance.child(sChave);
+        postsRef.setValue(sName, sPassword);
+
+    }
+
     protected DatabaseReference getRoot(){
         return this.db;
     }
