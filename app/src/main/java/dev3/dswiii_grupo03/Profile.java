@@ -69,7 +69,7 @@ public class Profile extends ManagerActivity {
             }
         });
     }
-    
+
     protected void loadProfileInformation(){
         //GET INFORMATIONS
         dbUser.getUserName(this.login).addListenerForSingleValueEvent(new DatabaseListenerProfile(this.name));
@@ -85,14 +85,23 @@ public class Profile extends ManagerActivity {
 
 
         //set editable Fields - only admins
-        dbUser.getUserAdmin(this.login).addValueEventListener(new DatabaseListenerProfileEditable(this.name));
-        dbUser.getUserAdmin(this.login).addValueEventListener(new DatabaseListenerProfileEditable(this.genero));
-        dbUser.getUserAdmin(this.login).addValueEventListener(new DatabaseListenerProfileEditable(this.cpf));
-        dbUser.getUserAdmin(this.login).addValueEventListener(new DatabaseListenerProfileEditable(this.rg));
-        dbUser.getUserAdmin(this.login).addValueEventListener(new DatabaseListenerProfileEditable(this.dtnascimento));
-        dbUser.getUserAdmin(this.login).addValueEventListener(new DatabaseListenerCheckBoxEditable(this.instrutor));
-        dbUser.getUserAdmin(this.login).addValueEventListener(new DatabaseListenerCheckBoxEditable(this.ativo));
-        dbUser.getUserAdmin(this.login).addValueEventListener(new DatabaseListenerProfileEditable(this.username));
+        dbUser.getUserAdmin(this.login).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                genero.setEnabled(dataSnapshot.getValue(boolean.class));
+                cpf.setEnabled(dataSnapshot.getValue(boolean.class));
+                rg.setEnabled(dataSnapshot.getValue(boolean.class));
+                dtnascimento.setEnabled(dataSnapshot.getValue(boolean.class));
+                instrutor.setEnabled(dataSnapshot.getValue(boolean.class));
+                ativo.setEnabled(dataSnapshot.getValue(boolean.class));
+                username.setEnabled(dataSnapshot.getValue(boolean.class));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     protected void saveInformation(){
