@@ -40,6 +40,8 @@ public class Profile extends ManagerActivity {
         loadProfileInformation();
     }
 
+
+
     protected void loadProfileInformation(){
         //GET INFORMATIONS
         dbUser.getUserName(this.login).addListenerForSingleValueEvent(new DatabaseListenerProfile(this.name));
