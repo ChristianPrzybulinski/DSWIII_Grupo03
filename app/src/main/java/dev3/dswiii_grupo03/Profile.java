@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import Database.DatabaseListenerProfile;
+import Database.DatabaseListenerProfileEditable;
 import Database.DatabaseUser;
 
 public class Profile extends ManagerActivity {
@@ -33,6 +34,8 @@ public class Profile extends ManagerActivity {
 
         loadProfileInformation();
     }
+
+
 
     protected void loadProfileInformation(){
         String login = getIntent().getStringExtra("login");
