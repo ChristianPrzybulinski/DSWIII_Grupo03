@@ -11,15 +11,23 @@ import android.view.View;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import cls.DatabaseConnect;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Write a message to the database
-        DatabaseReference db = FirebaseDatabase.getInstance().getReference("message");
-        Log.d("oi","testando o dieison");
+        Snackbar shower;
+
+
+
+        DatabaseConnect db = new DatabaseConnect();
+        db.teste();
+
+
+
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
