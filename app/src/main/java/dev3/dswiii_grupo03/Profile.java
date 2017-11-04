@@ -30,6 +30,14 @@ public class Profile extends ManagerActivity {
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);   // identifica a toolbar sendo usada
         setSupportActionBar(myToolbar);
+
+
+
+
     }
+
+
+
+
 
 }

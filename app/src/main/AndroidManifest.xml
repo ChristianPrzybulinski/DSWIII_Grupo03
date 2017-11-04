@@ -22,13 +22,14 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme">
+
+        </activity>
+        <activity android:name=".Profile">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Profile"></activity>
     </application>
 
 </manifest>
