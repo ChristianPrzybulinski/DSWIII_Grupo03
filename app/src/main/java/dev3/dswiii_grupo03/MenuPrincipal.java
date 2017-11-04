@@ -1,5 +1,6 @@
 package dev3.dswiii_grupo03;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,7 +14,7 @@ public class MenuPrincipal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("Academia ABC");
+        setTitle("Inicio");
         setContentView(R.layout.activity_menu_principal);   // referencia a atividade em questão
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);   // identifica a toolbar sendo usada
         setSupportActionBar(myToolbar);
@@ -31,23 +32,26 @@ public class MenuPrincipal extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-
     /*
      * código comentado porque a conexão dos itens do menu e suas respectivas ações ainda não foi feita
-     *
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle presses on the action bar items
-        switch (item.getItemId()) {
-            case R.id.action_search:
-                openSearch();
-                return true;
-            case R.id.action_compose:
-                composeMessage();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        Intent intent;
+        switch(item.getItemId()) {
+        case R.id.ImInicio:
+            intent = new Intent(this, MenuPrincipal.class);
+            this.startActivity(intent);
+            break;
+        case R.id.ImPerfil:
+            intent = new Intent(this, Profile.class);
+            this.startActivity(intent);
+            break;
+        default:
+            return super.onOptionsItemSelected(item);
         }
+
+        return true;
     }
-    */
+
 }

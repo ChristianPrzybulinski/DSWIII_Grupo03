@@ -6,4 +6,7 @@
     android:layout_height="match_parent"
     tools:context="dev3.dswiii_grupo03.Profile">
 
+    <!-- Include below needs to be in EVERY XML that uses the toolbar -->
+    <include layout="@layout/toolbar"/>
+
 </android.support.constraint.ConstraintLayout>
