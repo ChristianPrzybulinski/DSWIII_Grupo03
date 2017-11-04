@@ -27,7 +27,11 @@ public class DatabaseUser extends DatabaseConnect {
     }
 
     public DatabaseReference getUserPassword(String login){
-        return this.getCampoDB("users", login).child("pass");
+        return this.getCampoDB("users", login).child("password");
+    }
+
+    public DatabaseReference getUserAdmin(String login){
+        return this.getCampoDB("users", login).child("isAdmin");
     }
 
     public DatabaseReference getUserName(String login){

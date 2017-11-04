@@ -8,16 +8,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import Database.DatabaseUser;
+
 /**
  * Created by Chris on 04/11/2017.
  */
 
 public class ManagerActivity extends AppCompatActivity {
+
     protected MyApp mMyApp;
+    protected DatabaseUser dbUser;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mMyApp = (MyApp)this.getApplicationContext();
+        dbUser = new DatabaseUser();
     }
 
     protected void onResume() {
@@ -39,6 +44,7 @@ public class ManagerActivity extends AppCompatActivity {
             mMyApp.setCurrentActivity(null);
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar
@@ -52,13 +58,13 @@ public class ManagerActivity extends AppCompatActivity {
         switch(item.getItemId()) {
             case R.id.ImInicio:
                 if(!mMyApp.getCurrentActivity().getClass().equals(MenuPrincipal.class)) {
-                    intent = new Intent(this, MenuPrincipal.class);
+                    intent = new Intent(this, MenuPrincipal.class).putExtra("login", getIntent().getStringExtra("login"));
                     this.startActivity(intent);
                 }
                 break;
             case R.id.ImPerfil:
                 if(!mMyApp.getCurrentActivity().getClass().equals(Profile.class)) {
-                    intent = new Intent(this, Profile.class);
+                    intent = new Intent(this, Profile.class).putExtra("login", getIntent().getStringExtra("login"));
                     this.startActivity(intent);
                 }
                 break;

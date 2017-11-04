@@ -56,14 +56,12 @@ public class LoginActivity extends ManagerActivity  {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-    private DatabaseUser dbUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        dbUser = new DatabaseUser();
         DUMMY_CREDENTIALS = new ArrayList<String>();
         loadUsers();
         // Set up the login form.
