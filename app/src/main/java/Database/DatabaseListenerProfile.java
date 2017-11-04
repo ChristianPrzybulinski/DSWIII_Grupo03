@@ -24,7 +24,8 @@ public class DatabaseListenerProfile implements ValueEventListener {
 
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
-        text.setText(dataSnapshot.getValue().toString());
+        if(dataSnapshot.exists())
+            text.setText(dataSnapshot.getValue().toString());
     }
 
     @Override

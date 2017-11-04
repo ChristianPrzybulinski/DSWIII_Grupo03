@@ -34,6 +34,10 @@ public class DatabaseUser extends DatabaseConnect {
         return this.getCampoDB("users", login).child("isAdmin");
     }
 
+    public void setUserName(String login, String name){
+        this.getUserName(login).setValue(name);
+    }
+
     public DatabaseReference getUserName(String login){
         return this.getCampoDB("users", login).child("name");
     }
