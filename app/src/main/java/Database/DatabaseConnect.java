@@ -24,5 +24,9 @@ public class DatabaseConnect {
         return db.child(sTable).child(sPrimaryKey).getRef();
     }
 
+    protected DatabaseReference getRoot(){
+        return this.db;
+    }
+
 
 }

@@ -17,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 import Database.DatabaseListenerProfile;
 import Database.DatabaseUser;
 
-public class Profile extends AppCompatActivity {
+public class Profile extends ManagerActivity {
 
     private String login;
     private DatabaseUser dbUser;
