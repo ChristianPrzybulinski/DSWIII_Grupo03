@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dev3.dswiii_grupo03.TurmaActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_name" />
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnNewTurma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:layout_anchor="@+id/relativeLayout"
+        app:layout_anchorGravity="bottom|right"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/edit_name"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_editor_absoluteY="8dp" />
+
+        <Button
+            android:id="@+id/btnsegunda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar3"
+            android:layout_marginLeft="75dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="13dp"
+            android:layout_toEndOf="@+id/include"
+            android:layout_toRightOf="@+id/include"
+            android:text="Segunda" />
+
+        <Button
+            android:id="@+id/btnterca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btnquinta"
+            android:layout_alignLeft="@+id/btnquinta"
+            android:layout_alignStart="@+id/btnquinta"
+            android:text="Terça" />
+
+        <Button
+            android:id="@+id/btnquarta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btnsegunda"
+            android:layout_alignStart="@+id/btnsegunda"
+            android:layout_below="@+id/btnsegunda"
+            android:text="quarta" />
+
+        <Button
+            android:id="@+id/btnquinta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btnquarta"
+            android:layout_alignBottom="@+id/btnquarta"
+            android:layout_alignLeft="@+id/btnsabado"
+            android:layout_alignStart="@+id/btnsabado"
+            android:text="quinta" />
+
+        <Button
+            android:id="@+id/btnsexta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btnquarta"
+            android:layout_alignStart="@+id/btnquarta"
+            android:layout_below="@+id/btnquarta"
+            android:text="sexta" />
+
+        <Button
+            android:id="@+id/btnsabado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnquinta"
+            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp"
+            android:layout_toEndOf="@+id/btnsexta"
+            android:layout_toRightOf="@+id/btnsexta"
+            android:text="sabado" />
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/include"
+            android:layout_toRightOf="@+id/include"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+
+        <ListView
+            android:id="@+id/listaTurma"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/btnsexta"
+            android:layout_marginTop="23dp"
+            android:layout_toEndOf="@+id/include"
+            android:layout_toRightOf="@+id/include" />
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

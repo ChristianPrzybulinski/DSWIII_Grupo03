@@ -15,21 +15,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MenuPrincipal">
-
-        </activity>
+        <activity android:name=".MenuPrincipal" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Profile">
-
-        </activity>
+        <activity android:name=".Profile" />
+        <activity
+            android:name=".TurmaActivity"
+            android:label="@string/title_activity_turma"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

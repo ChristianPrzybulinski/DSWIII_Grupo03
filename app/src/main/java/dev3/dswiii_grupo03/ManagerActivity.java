@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import Database.DatabaseTurma;
 import Database.DatabaseUser;
 
 /**
@@ -18,11 +19,13 @@ public class ManagerActivity extends AppCompatActivity {
 
     protected MyApp mMyApp;
     protected DatabaseUser dbUser;
+    protected DatabaseTurma dbTurma;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mMyApp = (MyApp)this.getApplicationContext();
         dbUser = new DatabaseUser();
+        dbTurma = new DatabaseTurma();
     }
 
     protected void onResume() {
@@ -65,6 +68,12 @@ public class ManagerActivity extends AppCompatActivity {
             case R.id.ImPerfil:
                 if(!mMyApp.getCurrentActivity().getClass().equals(Profile.class)) {
                     intent = new Intent(this, Profile.class).putExtra("login", getIntent().getStringExtra("login"));
+                    this.startActivity(intent);
+                }
+                break;
+            case R.id.ImTurma:
+                if(!mMyApp.getCurrentActivity().getClass().equals(TurmaActivity.class)) {
+                    intent = new Intent(this, TurmaActivity.class).putExtra("login", getIntent().getStringExtra("login"));
                     this.startActivity(intent);
                 }
                 break;

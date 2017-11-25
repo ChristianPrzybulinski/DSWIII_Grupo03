@@ -11,9 +11,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class DatabaseUser extends DatabaseConnect {
 
-    private boolean exists;
-    private boolean mudou = false;
-
     public DatabaseUser() {
         super();
     }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import Database.DatabaseListenerAdministrador;
 import Database.DatabaseListenerCheckBox;
@@ -28,7 +29,10 @@ public class MenuPrincipal extends ManagerActivity {
         this.administrador = (EditText) findViewById(R.id.edit_tipoUsuario);
 
         loadProfileInformation();
-
+        CharSequence text = "Welcome to the Academia ABC";
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(this, text, duration);
+        toast.show();
     }
 
 

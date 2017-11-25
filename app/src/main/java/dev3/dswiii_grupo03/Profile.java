@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -114,6 +115,13 @@ public class Profile extends ManagerActivity {
         dbUser.setUserBirth(this.login, this.dtnascimento.getText().toString());
         dbUser.setUserAdmin(this.login, this.instrutor.isChecked());
         dbUser.setUserAtivo(this.login, this.ativo.isChecked());
+
+        CharSequence text = "Profile saved!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(this, text, duration);
+        toast.show();
+        finish();
     }
 
 }
