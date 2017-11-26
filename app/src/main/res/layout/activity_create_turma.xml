@@ -65,7 +65,8 @@
             android:layout_below="@+id/textView13"
             android:layout_marginTop="53dp"
             android:layout_toEndOf="@+id/textView13"
-            android:text="HoraInicio" />
+            android:text="HoraInicio"
+            android:layout_toRightOf="@+id/textView13" />
 
         <TextView
             android:id="@+id/textView16"
@@ -76,7 +77,8 @@
             android:layout_below="@+id/textView15"
             android:layout_marginTop="61dp"
             android:layout_toEndOf="@+id/textView15"
-            android:text="HoraTermino" />
+            android:text="HoraTermino"
+            android:layout_toRightOf="@+id/textView15" />
 
         <TextView
             android:id="@+id/textView18"
@@ -87,7 +89,8 @@
             android:layout_below="@+id/textView16"
             android:layout_marginTop="43dp"
             android:layout_toEndOf="@+id/textView16"
-            android:text="Instrutor" />
+            android:text="Instrutor"
+            android:layout_toRightOf="@+id/textView16" />
 
         <EditText
             android:id="@+id/txtNomeTurma"
