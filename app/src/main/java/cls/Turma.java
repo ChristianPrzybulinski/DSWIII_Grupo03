@@ -15,4 +15,9 @@ public class Turma{
         this.instrutor = instrutor;
         this.nome = nome;
     }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
 }

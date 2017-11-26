@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dev3.dswiii_grupo03.createTurma">
+
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="551dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="19dp"
+            android:text="Criação de nova Turma" />
+
+        <Button
+            android:id="@+id/btnCancelarTurma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="97dp"
+            android:layout_marginRight="97dp"
+            android:text="Cancelar" />
+
+        <Button
+            android:id="@+id/btnSalvarNewTurma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/btnCancelarTurma"
+            android:text="Criar" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView9"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="65dp"
+            android:text="Nome" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView13"
+            android:layout_alignStart="@+id/textView13"
+            android:layout_below="@+id/textView13"
+            android:layout_marginTop="53dp"
+            android:layout_toEndOf="@+id/textView13"
+            android:text="HoraInicio" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView15"
+            android:layout_alignStart="@+id/textView15"
+            android:layout_below="@+id/textView15"
+            android:layout_marginTop="61dp"
+            android:layout_toEndOf="@+id/textView15"
+            android:text="HoraTermino" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView16"
+            android:layout_alignStart="@+id/textView16"
+            android:layout_below="@+id/textView16"
+            android:layout_marginTop="43dp"
+            android:layout_toEndOf="@+id/textView16"
+            android:text="Instrutor" />
+
+        <EditText
+            android:id="@+id/txtNomeTurma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView13"
+            android:layout_alignBottom="@+id/textView13"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/txtHoraInicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView15"
+            android:layout_alignBottom="@+id/textView15"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/txtHoraTermino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView16"
+            android:layout_alignBottom="@+id/textView16"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/txtInstrutor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView18"
+            android:layout_alignBottom="@+id/textView18"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <CheckBox
+            android:id="@+id/cbSegunda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView18"
+            android:layout_alignStart="@+id/textView18"
+            android:layout_below="@+id/txtInstrutor"
+            android:layout_marginTop="34dp"
+            android:text="Segunda" />
+
+        <CheckBox
+            android:id="@+id/cbTerca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/cbSegunda"
+            android:layout_centerHorizontal="true"
+            android:text="Terça" />
+
+        <CheckBox
+            android:id="@+id/cbQuarta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/cbSabado"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignStart="@+id/cbSabado"
+            android:layout_alignTop="@+id/cbTerca"
+            android:text="Quarta" />
+
+        <CheckBox
+            android:id="@+id/cbQuinta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/cbSegunda"
+            android:layout_alignStart="@+id/cbSegunda"
+            android:layout_below="@+id/cbTerca"
+            android:layout_marginTop="23dp"
+            android:text="Quinta" />
+
+        <CheckBox
+            android:id="@+id/cbSexta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/cbTerca"
+            android:layout_alignStart="@+id/cbTerca"
+            android:layout_alignTop="@+id/cbQuinta"
+            android:text="Sexta" />
+
+        <CheckBox
+            android:id="@+id/cbSabado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/cbSexta"
+            android:text="Sabado"
+            android:layout_alignLeft="@+id/btnSalvarNewTurma"
+            android:layout_alignStart="@+id/btnSalvarNewTurma" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

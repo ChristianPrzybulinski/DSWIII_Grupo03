@@ -20,4 +20,13 @@ public class DatabaseTurma extends DatabaseConnect {
         return this.getRoot().child("turmas");
     }
 
+
+    public void newTurma(String dia, String nome, String horaI, String horaT, String instrutor){
+        DatabaseReference temp = getTurma(dia).push();
+        temp.child("name").setValue(nome);
+        temp.child("horaInicio").setValue(horaI);
+        temp.child("horaTermino").setValue(horaT);
+        temp.child("instrutor").setValue(instrutor);
+    }
+
 }

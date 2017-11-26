@@ -31,6 +31,7 @@
             android:name=".TurmaActivity"
             android:label="@string/title_activity_turma"
             android:theme="@style/AppTheme" />
+        <activity android:name=".createTurma"></activity>
     </application>
 
 </manifest>
