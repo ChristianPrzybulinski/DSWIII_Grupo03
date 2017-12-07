@@ -82,4 +82,7 @@ public class DatabaseUser extends DatabaseConnect {
     public void setUserAtivo(String login, boolean name){
         this.getUserAtivo(login).setValue(name);
     }
+    public void setUserPassword(String login, String pass){
+        this.getUserPassword(login).setValue(pass);
+    }
 }
