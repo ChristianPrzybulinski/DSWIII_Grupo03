@@ -29,6 +29,7 @@ import Database.DatabaseUser;
 public class Profile extends ManagerActivity {
 
     private String login;
+    private EditText password;
     private EditText name;
     private EditText genero;
     private EditText cpf;
@@ -50,6 +51,7 @@ public class Profile extends ManagerActivity {
 
 
         this.login = getIntent().getStringExtra("login");
+        this.password = (EditText) findViewById(R.id.edit_password);
         this.name = (EditText) findViewById(R.id.edit_name);
         this.genero = (EditText) findViewById(R.id.edit_gender);
         this.cpf = (EditText) findViewById(R.id.edit_cpf);
@@ -73,6 +75,7 @@ public class Profile extends ManagerActivity {
 
     protected void loadProfileInformation(){
         //GET INFORMATIONS
+        dbUser.getUserPassword(this.login).addListenerForSingleValueEvent(new DatabaseListenerProfile(this.password));
         dbUser.getUserName(this.login).addListenerForSingleValueEvent(new DatabaseListenerProfile(this.name));
         dbUser.getUserGender(this.login).addListenerForSingleValueEvent(new DatabaseListenerProfile(this.genero));
         dbUser.getUserCPF(this.login).addListenerForSingleValueEvent(new DatabaseListenerProfile(this.cpf));
@@ -106,6 +109,7 @@ public class Profile extends ManagerActivity {
     }
 
     protected void saveInformation(){
+        dbUser.setUserPassword(this.login, this.password.getText().toString());
         dbUser.setUserName(this.login, this.name.getText().toString());
         dbUser.setUserGender(this.login, this.genero.getText().toString());
         dbUser.setUserCPF(this.login, this.cpf.getText().toString());
