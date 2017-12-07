@@ -76,13 +76,8 @@ public class DatabaseUser extends DatabaseConnect {
     public void setUserBirth(String login, String name){
         this.getUserBirth(login).setValue(name);
     }
-    public void setUserAdmin(String login, boolean name){
-        this.getUserAdmin(login).setValue(name);
-    }
-    public void setUserAtivo(String login, boolean name){
-        this.getUserAtivo(login).setValue(name);
-    }
-    public void setUserPassword(String login, String pass){
-        this.getUserPassword(login).setValue(pass);
-    }
+    public void setUserAdmin(String login, boolean name){ this.getUserAdmin(login).setValue(name); }
+    public void setUserAtivo(String login, boolean name){ this.getUserAtivo(login).setValue(name); }
+    public void setUserPassword(String login, String pass){ this.getUserPassword(login).setValue(pass); }
+    public void setUser(String login){ this.getUsers().setValue(login); }//não testei, não lembro se é assim kakaka
 }
