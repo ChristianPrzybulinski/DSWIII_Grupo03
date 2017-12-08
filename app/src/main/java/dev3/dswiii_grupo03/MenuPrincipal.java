@@ -2,8 +2,10 @@ package dev3.dswiii_grupo03;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,8 +24,15 @@ import cls.Turma;
 
 public class MenuPrincipal extends ManagerActivity {
 
+    private ArrayAdapter<Turma> adapter;
+    private List<Turma> turmas;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setTitle("Inicio");
         setContentView(R.layout.activity_menu_principal);   // referencia a atividade em questão
@@ -31,10 +40,14 @@ public class MenuPrincipal extends ManagerActivity {
         setSupportActionBar(myToolbar);
 
         TextView name = (TextView) findViewById(R.id.text_name);
-        //this.administrador = (EditText) findViewById(R.id.edit_tipoUsuario);
+        //this.turmas = new ArrayList<>();
 
         loadProfileInformation(name);
-        getAllTurmas();
+        //getAllTurmas();
+
+        //ListView listaDeTurmas = (ListView) findViewById(R.id.et_list);
+        //adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, turmas);
+        //listaDeTurmas.setAdapter(adapter);
     }
 
 
@@ -59,7 +72,6 @@ public class MenuPrincipal extends ManagerActivity {
     protected void getAllTurmas(){
 
         String dia = "Segunda";
-        final List<Turma> turmas = new ArrayList<>();
 
         dbTurma.getTurma(dia).addValueEventListener(new ValueEventListener() {
             @Override
@@ -67,6 +79,7 @@ public class MenuPrincipal extends ManagerActivity {
                 for (DataSnapshot dsp : dataSnapshot.getChildren()){
                     turmas.clear();
                     turmas.add(dsp.getValue(Turma.class));
+                    adapter.notifyDataSetChanged();
                 }
                 unShowBar();
             }

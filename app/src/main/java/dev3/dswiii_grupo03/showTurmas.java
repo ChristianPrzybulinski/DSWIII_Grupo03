@@ -54,7 +54,7 @@ public class showTurmas extends ManagerActivity {
         });
 
 
-        ListView listaDeTurmas = (ListView) findViewById(R.id.lista);
+        ListView listaDeTurmas = (ListView) findViewById(R.id.et_list);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, turmas);
         listaDeTurmas.setAdapter(adapter);
 
