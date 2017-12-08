@@ -26,6 +26,8 @@ Mostra as informações cadastrais do usuário. Nesta tela existe uma diferença
 
 Todos tipos de usuário tem permissão de visualização de todos campos.
 
+![perfil](https://github.com/ChristianPrzybulinski/DSWIII_Grupo03/blob/master/perfil.png)
+
 ## Turmas
 
 A tela de turmas permite que seja selecionado o dia ao qual quer ser visualizada ou inclusa a turma e a partir daí abre a segunda tela que lista todas as turmas cadastradas pro usuário.
