@@ -63,8 +63,9 @@ public class MenuPrincipal extends ManagerActivity {
             newuser.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                Intent menuIntent = new Intent(MenuPrincipal.this, Profile.class);
-                startActivity(menuIntent);
+                    Intent menuIntent = new Intent(MenuPrincipal.this, Profile.class).putExtra("user", user).putExtra("newUser", true);
+                    startActivity(menuIntent);
+                    finish();
                 }
             });
         }

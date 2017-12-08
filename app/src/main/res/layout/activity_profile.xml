@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:id="@+id/scrollDisplay"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -381,7 +383,7 @@
             android:ems="10"
             android:text="Senha"
             android:textSize="20sp"
-            app:layout_constraintHorizontal_bias="0.0" />
+            app:layout_constraintHorizontal_bias="0.066" />
 
         <EditText
             android:id="@+id/edit_password"

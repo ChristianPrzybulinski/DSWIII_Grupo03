@@ -86,8 +86,9 @@ public class ManagerActivity extends AppCompatActivity {
                 break;
             case R.id.ImPerfil:
                 if(!mMyApp.getCurrentActivity().getClass().equals(Profile.class)) {
-                    intent = new Intent(this, Profile.class).putExtra("user", this.user);
+                    intent = new Intent(this, Profile.class).putExtra("user", this.user).putExtra("newUser",false);
                     this.startActivity(intent);
+                    finish();
                 }
                 break;
             case R.id.ImTurma:
