@@ -8,6 +8,17 @@ Para DB, o app utiliza Google Firebase.
 
 ## Login
 
+O login é feito com MD5 diretamente com o Firebase. Usuários são criados ou pelo próprio console do Firebase ou por dentro do sistema por administradores.
+
+![login](https://github.com/ChristianPrzybulinski/DSWIII_Grupo03/blob/master/login.png)
+
+## Turmas
+
+A tela de turmas permite que seja selecionado o dia ao qual quer ser visualizada ou inclusa a turma e a partir daí abre a segunda tela que lista todas as turmas cadastradas pro usuário.
+
+![turma1](https://github.com/ChristianPrzybulinski/DSWIII_Grupo03/blob/master/turma1.png)
+
+![turma2](https://github.com/ChristianPrzybulinski/DSWIII_Grupo03/blob/master/turma2.png)
 
 
 
