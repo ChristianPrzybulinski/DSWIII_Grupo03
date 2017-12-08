@@ -87,6 +87,10 @@ public class showTurmas extends ManagerActivity {
 
     }
 
+    private void userNewTurma(int i){
+        turmas.get(i);
+    }
+
     private void getAllTurmas(){
         dbTurma.getTurma(dia).addValueEventListener(new ValueEventListener() {
             @Override
