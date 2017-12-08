@@ -16,6 +16,8 @@ O login é feito com MD5 diretamente com o Firebase. Usuários são criados ou p
 
 A tela inicial mostra as turmas nas quais o usuario está cadastrado pro dia de hoje. Pra acessar as demais funções, usa-se o menu da Action Bar.
 
+![home](https://github.com/ChristianPrzybulinski/DSWIII_Grupo03/blob/master/home.png)
+
 ## Perfil de Usuário
 
 Mostra as informações cadastrais do usuário. Nesta tela existe uma diferença de permissão entre os dois tipos de usuários:
