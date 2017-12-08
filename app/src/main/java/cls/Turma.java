@@ -1,13 +1,16 @@
 package cls;
 
+import java.io.Serializable;
 import java.util.Date;
 
 public class Turma{
 
-    private String horaInicio;
-    private String horaTermino;
-    private String instrutor;
-    private String nome;
+    public String horaInicio;
+    public String horaTermino;
+    public String instrutor;
+    public String nome;
+
+    public Turma(){}
 
     public Turma(String horaInicio, String horaTermino, String instrutor, String nome) {
         this.horaInicio = horaInicio;
@@ -16,8 +19,8 @@ public class Turma{
         this.nome = nome;
     }
 
-    @Override
-    public String toString() {
+
+    public String toString(){
         return nome;
     }
 }

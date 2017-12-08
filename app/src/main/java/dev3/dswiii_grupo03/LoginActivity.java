@@ -63,7 +63,6 @@ public class LoginActivity extends ManagerActivity  {
         setContentView(R.layout.activity_login);
 
         DUMMY_CREDENTIALS = new ArrayList<String>();
-        loadUsers();
         // Set up the login form.
         mUsernameView = (EditText) findViewById(R.id.email);
         mPasswordView = (EditText) findViewById(R.id.password);
@@ -89,6 +88,7 @@ public class LoginActivity extends ManagerActivity  {
     }
 
     private boolean attemptLogin(){
+        DUMMY_CREDENTIALS.add("admin:123");
         for (String credential : DUMMY_CREDENTIALS) {
             String[] pieces = credential.split(":");
             if (pieces[0].equals(mUsernameView.getText().toString())) {

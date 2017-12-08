@@ -1,12 +1,21 @@
 package dev3.dswiii_grupo03;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import Database.DatabaseTurma;
 import Database.DatabaseUser;
@@ -20,12 +29,18 @@ public class ManagerActivity extends AppCompatActivity {
     protected MyApp mMyApp;
     protected DatabaseUser dbUser;
     protected DatabaseTurma dbTurma;
+    protected String login;
+    protected boolean admin;
+    protected ProgressBar progressBar;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mMyApp = (MyApp)this.getApplicationContext();
         dbUser = new DatabaseUser();
         dbTurma = new DatabaseTurma();
+        this.login = getIntent().getStringExtra("login");
+        this.admin = getIntent().getBooleanExtra("admin", true);
     }
 
     protected void onResume() {
@@ -82,6 +97,29 @@ public class ManagerActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+
+    protected void showText(String t){
+        CharSequence text = t;
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(this, text, duration);
+        toast.show();
+    }
+
+
+    protected void showBar(RelativeLayout layout){
+        progressBar = new ProgressBar(this,null,android.R.attr.progressBarStyleSmall);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(100,100);
+        params.addRule(RelativeLayout.CENTER_IN_PARENT);
+        layout.addView(progressBar,params);
+        progressBar.setVisibility(View.VISIBLE);  //To show ProgressBar
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+    }
+
+    protected void unShowBar(){
+        progressBar.setVisibility(View.GONE);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
     }
 
 }

@@ -12,9 +12,6 @@ import Database.DatabaseListenerProfile;
 
 
 public class MenuPrincipal extends ManagerActivity {
-    private String login;
-    private EditText name;
-    private EditText administrador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,22 +21,18 @@ public class MenuPrincipal extends ManagerActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);   // identifica a toolbar sendo usada
         setSupportActionBar(myToolbar);
 
-        this.login = getIntent().getStringExtra("login");
-        this.name = (EditText) findViewById(R.id.edit_name);
-        this.administrador = (EditText) findViewById(R.id.edit_tipoUsuario);
+
+       // this.name = (EditText) findViewById(R.id.edit_name);
+        //this.administrador = (EditText) findViewById(R.id.edit_tipoUsuario);
 
         loadProfileInformation();
-        CharSequence text = "Welcome to the Academia ABC";
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(this, text, duration);
-        toast.show();
     }
 
 
     protected void loadProfileInformation(){
         //GET INFORMATIONS
-        dbUser.getUserName(this.login).addListenerForSingleValueEvent(new DatabaseListenerProfile(this.name));
-        dbUser.getUserAdmin(this.login).addListenerForSingleValueEvent(new DatabaseListenerAdministrador(this.administrador));
+       // dbUser.getUserName(this.login).addListenerForSingleValueEvent(new DatabaseListenerProfile(this.name));
+       // dbUser.getUserAdmin(this.login).addListenerForSingleValueEvent(new DatabaseListenerAdministrador(this.administrador));
 
     }
 
