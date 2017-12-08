@@ -69,7 +69,7 @@ public class showTurmas extends ManagerActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE:
-                                //userNewTurma(i)
+                                userNewTurma(i)
                                 break;
 
                             case DialogInterface.BUTTON_NEGATIVE:
