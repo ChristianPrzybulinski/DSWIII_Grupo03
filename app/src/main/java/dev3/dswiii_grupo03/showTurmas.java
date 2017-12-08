@@ -1,13 +1,16 @@
 package dev3.dswiii_grupo03;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
@@ -54,9 +57,33 @@ public class showTurmas extends ManagerActivity {
         });
 
 
-        ListView listaDeTurmas = (ListView) findViewById(R.id.et_list);
+        ListView listaDeTurmas = (ListView) findViewById(R.id.lista);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, turmas);
         listaDeTurmas.setAdapter(adapter);
+
+        listaDeTurmas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                //userNewTurma(i)
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                //No button clicked
+                                break;
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(showTurmas.this);
+                builder.setMessage("Quer se inscrever nessa turma?").setPositiveButton("Sim", dialogClickListener)
+                        .setNegativeButton("Não", dialogClickListener).show();
+            }
+        });
 
     }
 

@@ -5,6 +5,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import cls.Person;
+import cls.Turma;
+
 /**
  * Created by Chris on 04/11/2017.
  */
@@ -55,29 +58,10 @@ public class DatabaseUser extends DatabaseConnect {
         return this.getCampoDB("users", login).child("phone");
     }
 
-    public void setUserName(String login, String name){
-        this.getUserName(login).setValue(name);
+    public void newUser(String login, Person person) {
+        getUser(login).setValue(person);
+
     }
-    public void setUserGender(String login, String name){
-        this.getUserGender(login).setValue(name);
-    }
-    public void setUserCPF(String login, String name){
-        this.getUserCPF(login).setValue(name);
-    }
-    public void setUserRG(String login, String name){
-        this.getUserRG(login).setValue(name);
-    }
-    public void setUserPhone(String login, String name){
-        this.getUserPhone(login).setValue(name);
-    }
-    public void setUserEmail(String login, String name){
-        this.getUserEmail(login).setValue(name);
-    }
-    public void setUserBirth(String login, String name){
-        this.getUserBirth(login).setValue(name);
-    }
-    public void setUserAdmin(String login, boolean name){ this.getUserAdmin(login).setValue(name); }
-    public void setUserAtivo(String login, boolean name){ this.getUserAtivo(login).setValue(name); }
-    public void setUserPassword(String login, String pass){ this.getUserPassword(login).setValue(pass); }
-    public void setUser(String login){ this.getUsers().setValue(login); }//não testei, não lembro se é assim kakaka
+
+
 }

@@ -44,7 +44,7 @@ public class ManagerActivity extends AppCompatActivity {
         dbUser = new DatabaseUser();
         dbTurma = new DatabaseTurma();
         this.login = getIntent().getStringExtra("login");
-        this.admin = getIntent().getBooleanExtra("admin", true);
+        this.admin = getIntent().getBooleanExtra("admin", false);
     }
 
     protected void onResume() {

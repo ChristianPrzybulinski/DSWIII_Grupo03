@@ -42,6 +42,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import Database.DatabaseUser;
+import cls.Person;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -85,14 +86,14 @@ public class LoginActivity extends ManagerActivity  {
         dbUser.getUsers().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                boolean exists = false;
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     String login = postSnapshot.child("login").getValue().toString();
-                    boolean exists = false;
                     if(login.equals(mUsernameView.getText().toString())){
                         exists = true;
                         String password = postSnapshot.child("password").getValue().toString();
-                        if(password.equals(mPasswordView.getText().toString())){
-                            goToHomeMenu();
+                        if(password.equals(convertPassMd5(mPasswordView.getText().toString()))){
+                            goToHomeMenu(postSnapshot.getValue(Person.class));
                         }else{
                             showProgress(false);
                             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
@@ -100,12 +101,12 @@ public class LoginActivity extends ManagerActivity  {
                             setFocusView(mPasswordView);
                         }
                     }
-                    if(!exists){
-                        showProgress(false);
-                        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                        mUsernameView.setError("Username not exists");
-                        setFocusView(mUsernameView);
-                    }
+                }
+                if(!exists){
+                    showProgress(false);
+                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                    mUsernameView.setError("Username not exists");
+                    setFocusView(mUsernameView);
                 }
             }
 
@@ -121,8 +122,8 @@ public class LoginActivity extends ManagerActivity  {
         focusView.requestFocus();
     }
 
-    private void goToHomeMenu(){
-        Intent menuIntent = new Intent(this, MenuPrincipal.class).putExtra("login", mUsernameView.getText().toString());
+    private void goToHomeMenu(Person p){
+        Intent menuIntent = new Intent(this, MenuPrincipal.class).putExtra("user",p);
         startActivity(menuIntent);
         finish();
     }
