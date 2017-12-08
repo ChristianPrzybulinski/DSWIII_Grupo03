@@ -22,6 +22,7 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -61,8 +62,6 @@ public class LoginActivity extends ManagerActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        DUMMY_CREDENTIALS = new ArrayList<String>();
         // Set up the login form.
         mUsernameView = (EditText) findViewById(R.id.email);
         mPasswordView = (EditText) findViewById(R.id.password);
@@ -73,43 +72,40 @@ public class LoginActivity extends ManagerActivity  {
 
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View view) {
-                if(attemptLogin()){
-                    showProgress(true);
-                    goToHomeMenu();
-                }else{
-                    mPasswordView.setError("Invalid password");
-                    setFocusView(mPasswordView);
-                }
+            public void onClick(View view) {attemptLogin();
             }
         });
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
 
-    private boolean attemptLogin(){
-        DUMMY_CREDENTIALS.add("admin:123");
-        for (String credential : DUMMY_CREDENTIALS) {
-            String[] pieces = credential.split(":");
-            if (pieces[0].equals(mUsernameView.getText().toString())) {
-                // Account exists, return true if the password matches.
-                return pieces[1].equals(mPasswordView.getText().toString());
-            }else{
-                mUsernameView.setError("Invalid username");
-                setFocusView(mUsernameView);
-            }
-        }
-        return false;
-    }
-
-    private void loadUsers(){
+    private void attemptLogin(){
+        showProgress(true);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         dbUser.getUsers().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    String login = postSnapshot.getKey().toString();
-                    String pass = postSnapshot.child("password").getValue().toString();
-                    DUMMY_CREDENTIALS.add(login + ":" + pass);
+                    String login = postSnapshot.child("login").getValue().toString();
+                    boolean exists = false;
+                    if(login.equals(mUsernameView.getText().toString())){
+                        exists = true;
+                        String password = postSnapshot.child("password").getValue().toString();
+                        if(password.equals(mPasswordView.getText().toString())){
+                            goToHomeMenu();
+                        }else{
+                            showProgress(false);
+                            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                            mPasswordView.setError("Invalid password");
+                            setFocusView(mPasswordView);
+                        }
+                    }
+                    if(!exists){
+                        showProgress(false);
+                        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                        mUsernameView.setError("Username not exists");
+                        setFocusView(mUsernameView);
+                    }
                 }
             }
 
@@ -136,6 +132,7 @@ public class LoginActivity extends ManagerActivity  {
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showProgress(final boolean show) {
+
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
         // for very easy animations. If available, use these APIs to fade-in
         // the progress spinner.
