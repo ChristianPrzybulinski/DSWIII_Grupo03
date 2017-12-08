@@ -12,6 +12,18 @@ O login é feito com MD5 diretamente com o Firebase. Usuários são criados ou p
 
 ![login](https://github.com/ChristianPrzybulinski/DSWIII_Grupo03/blob/master/login.png)
 
+## Tela Inicial
+
+A tela inicial mostra as turmas nas quais o usuario está cadastrado pro dia de hoje. Pra acessar as demais funções, usa-se o menu da Action Bar.
+
+## Perfil de Usuário
+
+Mostra as informações cadastrais do usuário. Nesta tela existe uma diferença de permissão entre os dois tipos de usuários:
+- Administradores (instrutores) podem alterar todos os campos de seu perfil.
+- Alunos somente tem autorização para alterar alguns campos.
+
+Todos tipos de usuário tem permissão de visualização de todos campos.
+
 ## Turmas
 
 A tela de turmas permite que seja selecionado o dia ao qual quer ser visualizada ou inclusa a turma e a partir daí abre a segunda tela que lista todas as turmas cadastradas pro usuário.
