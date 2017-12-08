@@ -15,8 +15,4 @@
         android:id="@+id/ImTurma"
         android:orderInCategory="100"
         android:title="Turmas" />
-    <item
-        android:id="@+id/ImRelatorio"
-        android:orderInCategory="100"
-        android:title="Relatórios" />
 </menu>
