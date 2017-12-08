@@ -88,7 +88,7 @@ public class TurmaActivity extends ManagerActivity {
     }
 
     private void clickedButton(String dia) {
-        Intent menuIntent = new Intent(this, showTurmas.class).putExtra("dia",dia);
+        Intent menuIntent = new Intent(this, showTurmas.class).putExtra("dia",dia).putExtra("user", this.user);
         startActivity(menuIntent);
     }
 

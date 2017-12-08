@@ -23,6 +23,7 @@ import java.security.NoSuchAlgorithmException;
 
 import Database.DatabaseTurma;
 import Database.DatabaseUser;
+import cls.Person;
 
 /**
  * Created by Chris on 04/11/2017.
@@ -36,15 +37,14 @@ public class ManagerActivity extends AppCompatActivity {
     protected String login;
     protected boolean admin;
     protected ProgressBar progressBar;
-
+    protected Person user;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mMyApp = (MyApp)this.getApplicationContext();
         dbUser = new DatabaseUser();
         dbTurma = new DatabaseTurma();
-        this.login = getIntent().getStringExtra("login");
-        this.admin = getIntent().getBooleanExtra("admin", false);
+        user = (Person) getIntent().getSerializableExtra("user");
     }
 
     protected void onResume() {
@@ -80,19 +80,19 @@ public class ManagerActivity extends AppCompatActivity {
         switch(item.getItemId()) {
             case R.id.ImInicio:
                 if(!mMyApp.getCurrentActivity().getClass().equals(MenuPrincipal.class)) {
-                    intent = new Intent(this, MenuPrincipal.class).putExtra("login", getIntent().getStringExtra("login"));
+                    intent = new Intent(this, MenuPrincipal.class).putExtra("user", this.user);
                     this.startActivity(intent);
                 }
                 break;
             case R.id.ImPerfil:
                 if(!mMyApp.getCurrentActivity().getClass().equals(Profile.class)) {
-                    intent = new Intent(this, Profile.class).putExtra("login", getIntent().getStringExtra("login"));
+                    intent = new Intent(this, Profile.class).putExtra("user", this.user);
                     this.startActivity(intent);
                 }
                 break;
             case R.id.ImTurma:
                 if(!mMyApp.getCurrentActivity().getClass().equals(TurmaActivity.class)) {
-                    intent = new Intent(this, TurmaActivity.class).putExtra("login", getIntent().getStringExtra("login"));
+                    intent = new Intent(this, TurmaActivity.class).putExtra("user", this.user);
                     this.startActivity(intent);
                 }
                 break;

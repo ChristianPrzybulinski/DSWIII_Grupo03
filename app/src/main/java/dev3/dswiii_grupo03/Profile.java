@@ -69,11 +69,7 @@ public class Profile extends ManagerActivity {
 
         dbUser.newUser(((EditText)findViewById(R.id.edit_id)).getText().toString(), p);
 
-        CharSequence text = "Profile saved!";
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(this, text, duration);
-        toast.show();
+        showText("Profile saved!");
         finish();
     }
 

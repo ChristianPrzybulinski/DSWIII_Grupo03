@@ -22,6 +22,11 @@ public class DatabaseUser extends DatabaseConnect {
         return this.getCampoDB("users", login);
     }
 
+    public DatabaseReference getUserTurma(String login,String dia) {
+        return this.getCampoDB("users", login).child("Turmas").child(dia);
+    }
+
+
     public DatabaseReference getUsers() {
         return this.getRoot().child("users");
     }
@@ -60,6 +65,11 @@ public class DatabaseUser extends DatabaseConnect {
 
     public void newUser(String login, Person person) {
         getUser(login).setValue(person);
+
+    }
+
+    public void newTurma(String login, Turma turma, String dia) {
+        getUser(login).child("Turmas").child(dia).push().setValue(turma);
 
     }
 

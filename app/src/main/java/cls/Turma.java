@@ -21,6 +21,6 @@ public class Turma{
 
 
     public String toString(){
-        return nome;
+        return "Nome:"+this.nome+ "  Inicio: "+this.horaInicio;
     }
 }

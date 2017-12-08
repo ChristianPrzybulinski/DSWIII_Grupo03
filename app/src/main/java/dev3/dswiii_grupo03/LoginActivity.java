@@ -91,14 +91,23 @@ public class LoginActivity extends ManagerActivity  {
                     String login = postSnapshot.child("login").getValue().toString();
                     if(login.equals(mUsernameView.getText().toString())){
                         exists = true;
-                        String password = postSnapshot.child("password").getValue().toString();
-                        if(password.equals(convertPassMd5(mPasswordView.getText().toString()))){
-                            goToHomeMenu(postSnapshot.getValue(Person.class));
-                        }else{
+                        boolean ativo = postSnapshot.child("isActive").getValue(boolean.class);
+                        if(!ativo){
                             showProgress(false);
                             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                            mPasswordView.setError("Invalid password");
-                            setFocusView(mPasswordView);
+                            mUsernameView.setError("Usuario desativado!");
+                            setFocusView(mUsernameView);
+                        }
+                        else {
+                            String password = postSnapshot.child("password").getValue().toString();
+                            if (password.equals(convertPassMd5(mPasswordView.getText().toString()))) {
+                                goToHomeMenu(postSnapshot.getValue(Person.class));
+                            } else {
+                                showProgress(false);
+                                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                                mPasswordView.setError("Invalid password");
+                                setFocusView(mPasswordView);
+                            }
                         }
                     }
                 }

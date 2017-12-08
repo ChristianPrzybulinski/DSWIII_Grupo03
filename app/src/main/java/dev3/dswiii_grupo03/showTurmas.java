@@ -31,7 +31,6 @@ public class showTurmas extends ManagerActivity {
     private String dia;
     private List<Turma> turmas;
     private ArrayAdapter<Turma> adapter;
-    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +45,7 @@ public class showTurmas extends ManagerActivity {
         getAllTurmas();
 
         FloatingActionButton flt = (FloatingActionButton) findViewById(R.id.fab);
-        if(!this.admin) flt.setVisibility(View.GONE);
+        if(!this.user.isAdmin) flt.setVisibility(View.GONE);
 
         flt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +72,6 @@ public class showTurmas extends ManagerActivity {
                                 break;
 
                             case DialogInterface.BUTTON_NEGATIVE:
-                                //No button clicked
                                 break;
                         }
                     }
@@ -88,7 +86,8 @@ public class showTurmas extends ManagerActivity {
     }
 
     private void userNewTurma(int i){
-        turmas.get(i);
+        dbUser.newTurma(this.user.login,turmas.get(i),this.dia);
+        showText("Inscrito com sucesso");
     }
 
     private void getAllTurmas(){
