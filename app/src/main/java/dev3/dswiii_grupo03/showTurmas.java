@@ -94,8 +94,8 @@ public class showTurmas extends ManagerActivity {
         dbTurma.getTurma(dia).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                turmas.clear();
                 for (DataSnapshot dsp : dataSnapshot.getChildren()){
-                    turmas.clear();
                     turmas.add(dsp.getValue(Turma.class));
                     adapter.notifyDataSetChanged();
                 }

@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +51,6 @@ public class MenuPrincipal extends ManagerActivity {
         name.setText(user.name);
 
         this.turmas = new ArrayList<>();
-        this.turmas.add(new Turma("e","e","e","e"));
         getAllTurmas();
 
 
@@ -108,8 +108,8 @@ public class MenuPrincipal extends ManagerActivity {
         dbUser.getUserTurma(this.user.login, getDay()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                turmas.clear();
                 for (DataSnapshot dsp : dataSnapshot.getChildren()){
-                    turmas.clear();
                     turmas.add(dsp.getValue(Turma.class));
                     adapter.notifyDataSetChanged();
                 }

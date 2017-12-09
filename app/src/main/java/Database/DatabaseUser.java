@@ -23,7 +23,7 @@ public class DatabaseUser extends DatabaseConnect {
     }
 
     public DatabaseReference getUserTurma(String login,String dia) {
-        return this.getCampoDB("users", login).child("Turmas").child(dia);
+        return this.getCampoDB("usersTurma", login).child("Turmas").child(dia);
     }
 
 
@@ -41,7 +41,9 @@ public class DatabaseUser extends DatabaseConnect {
     }
 
     public void newTurma(String login, Turma turma, String dia) {
-        getUser(login).child("Turmas").child(dia).push().setValue(turma);
+        DatabaseReference ref = getUserTurma(login, dia);
+        ref.child(turma.nome).removeValue();
+        ref.child(turma.nome).setValue(turma);
 
     }
 
