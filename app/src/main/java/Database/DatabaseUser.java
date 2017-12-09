@@ -36,6 +36,10 @@ public class DatabaseUser extends DatabaseConnect {
 
     }
 
+    public void setPassword(String login, String password){
+        getUser(login).child("password").setValue(password);
+    }
+
     public void newTurma(String login, Turma turma, String dia) {
         getUser(login).child("Turmas").child(dia).push().setValue(turma);
 

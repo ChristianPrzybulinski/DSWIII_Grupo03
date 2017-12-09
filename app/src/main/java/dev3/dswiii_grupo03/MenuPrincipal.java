@@ -50,6 +50,7 @@ public class MenuPrincipal extends ManagerActivity {
         name.setText(user.name);
 
         this.turmas = new ArrayList<>();
+        this.turmas.add(new Turma("e","e","e","e"));
         getAllTurmas();
 
 

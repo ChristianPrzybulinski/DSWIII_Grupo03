@@ -97,6 +97,17 @@ public class ManagerActivity extends AppCompatActivity {
                     this.startActivity(intent);
                 }
                 break;
+            case R.id.ImNewPassword:
+                try{
+                    if(!mMyApp.getCurrentActivity().getClass().equals(changePassword.class)) {
+                        intent = new Intent(this, changePassword.class).putExtra("user", this.user);
+                        this.startActivity(intent);
+                        finish();
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
